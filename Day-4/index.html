@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day -3 of Revision</title>
+  </head>
+  <body>
+    <button id="red">Red</button>
+    <button id="black">Black</button>
+    <button id="green">Green</button>
+    <button id="orange">Orange</button>
+    <button id="purple">Purple</button>
+
+    <script>
+      // Closure : is the combination of the function bundled together with reference to its lexical environment.
+
+      //   function x() {
+      //     let a = 10;
+      //     function b() {
+      //       console.log(a);
+      //     }
+      //     return b;
+      //   }
+
+      // //   x()(); // same as:
+      //   let y = x();
+      //   y(); // Output: 10, it's accessing the value of 'a' from the outer function 'x'
+
+      //   function x() {
+      //     let a = 10;
+      //     function b() {
+      //       console.log(a);
+      //     }
+      //     a = 20;
+      //     return b;
+      //   }
+      //   let y = x();
+      //   y(); // Output: 20
+
+      //   function main() {
+      //     let b = 12;
+      //     function x() {
+      //       let a = 10;
+      //       function y() {
+      //         console.log(a, b);
+      //       }
+      //       a = 20;
+      //       return y;
+      //     }
+      //     let y = x();
+      //     y();
+      //   }
+      //   main();
+
+      //   function makeAdder(x) {
+      //     return function (y) {
+      //       return x + y;
+      //     };
+      //   }
+      //   const add5 = makeAdder(5);
+      //   const add10 = makeAdder(10);
+      //   console.log(add5(2)); // 7
+      //   console.log(add10(2)); // 12
+
+      // Closure scope chain
+      //   const e = 10;
+      //   function sum(a) {
+      //     return function (b) {
+      //       return function (c) {
+      //         return function (d) {
+      //           return a + b + c + d + e;
+      //         };
+      //       };
+      //     };
+      //   }
+      //   console.log(sum(1)(2)(3)(4)); // 20
+
+      //   function time() {
+      //     for (var i = 1; i <= 5; i++) {
+      //       setTimeout(function () {
+      //         console.log(i);
+      //       }, i * 1000);
+      //     }
+      //   }
+      //   time() // 6 6 6 6  6
+
+      //   function time() {
+      //     for (let i = 1; i <= 5; i++) {
+      //       setTimeout(function () {
+      //         console.log(i);
+      //       }, i * 1000);
+      //     }
+      //   }
+      //   time(); // 1 2 3 4 5
+
+      //   function time() {
+      //     for (var i = 1; i <= 5; i++) {
+      //       function x(i) {
+      //         setTimeout(function () {
+      //           console.log(i);
+      //         }, i * 1000);
+      //       }
+      //       x(i);
+      //     }
+      //   }
+      //   time(); // 1 2 3 4 5
+    </script>
+
+     <!-- USE CASE OF CLOSURES -->
+    <script>
+      function changeColor(color) {
+        return function handler() {
+          document.body.style.backgroundColor = `${color}`;
+        };
+      }
+      document
+        .getElementById("red")
+        .addEventListener("click", changeColor("red"), false);
+      document
+        .getElementById("black")
+        .addEventListener("click", changeColor("black"), false);
+      document
+        .getElementById("green")
+        .addEventListener("click", changeColor("green"), false);
+      document
+        .getElementById("orange")
+        .addEventListener("click", changeColor("orange"), false);
+      document
+        .getElementById("purple")
+        .addEventListener("click", changeColor("purple"), false);
+    </script>
+  </body>
+</html>
